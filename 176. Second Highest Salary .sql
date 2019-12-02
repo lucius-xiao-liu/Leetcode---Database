@@ -1,4 +1,3 @@
 # Write your MSSQL query statement below
-Select max(Salary) as SecondHighestSalary
-From Employee
-Where Salary < (Select MAX(salary)from Employee)
+select max(salary) as SecondHighestSalary from employee
+where salary not in (select max(salary) from employee)
