@@ -1,5 +1,7 @@
 /* Group_Concat ->returns a string with concatenated non-NULL value from a group.
                   Returns NULL when there are no non-NULL values
+                  
+   GROUP_CONCAT(DISTINCT cate_id ORDER BY  cate_id ASC SEPARATOR ' ')
                   */
 
 
