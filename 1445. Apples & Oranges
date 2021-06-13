@@ -1,0 +1,29 @@
+# Write your MySQL query statement below
+select sale_date, sum(case when fruit='apples' then sold_num else -sold_num end) as diff
+from sales
+group by sale_date
+order by sale_date
+
+# sum(if)
+SELECT
+    sale_date,
+    SUM(IF(fruit = 'apples', sold_num, -sold_num)) AS diff
+FROM Sales
+GROUP BY sale_date
+
+
+# Join
+select distinct a.sale_date, (a.sold_num - b.sold_num) as diff
+from
+(
+  select sale_date, fruit, sold_num
+  from Sales
+  where fruit = 'apples'
+) a
+join
+(
+  select sale_date, fruit, sold_num
+  from Sales
+  where fruit = 'oranges'
+) b
+on a.sale_date = b.sale_date
